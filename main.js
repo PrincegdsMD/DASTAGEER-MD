@@ -9,7 +9,7 @@
 */
 
 (async () => {
-	require('./AiriSystem')
+	require('./config.js')
 const {
 	default: makeWASocket,
 	useMultiFileAuthState,
@@ -39,7 +39,7 @@ const syntaxerror = require('syntax-error');
 const os = require('os');
 const { randomBytes } = require('crypto');
 const moment = require('moment-timezone');
-const time = moment.tz('Asia/Jakarta').format('HH:mm:ss');
+const time = moment.tz('Asia/Karachi').format('HH:mm:ss');
 const chalk = require('chalk');
 const { color } = require('./function/color');
 let simple = require('./function/simple');
@@ -110,7 +110,7 @@ const connectionOptions = {
 		creds: state.creds,
 		keys: makeCacheableSignalKeyStore(state.keys, Pino({ level: 'fatal' }).child({ level: 'fatal' })),
 	},
-	markOnlineOnConnect: true,
+	markOnlineOnConnect: false,
 	generateHighQualityLinkPreview: true,
 	getMessage: async clave => {
 		let jid = jidNormalizedUser(clave.remoteJid);
@@ -125,7 +125,7 @@ const connectionOptions = {
 global.conn = simple.makeWASocket(connectionOptions);
 
 if (pairingCode && !conn.authState.creds.registered) {
-	const phoneNumber = await question(chalk.green.underline('Masukkan Nomor WeaBot Milikmu:\n'));
+	const phoneNumber = await question(chalk.green.underline('Enter Your WeaBot Number:\n'));
 	const code = await conn.requestPairingCode(phoneNumber);
 	setTimeout(async () => {
 		console.log(chalk.green.bold('Nih Kodenya: ' + code))
@@ -161,7 +161,7 @@ conn.isInit = false;
             return msg?.message
         }
         return {
-            conversation: "Airink Is Running!"
+            conversation: "DsMD Is Running!"
         }
     }
     
@@ -202,7 +202,7 @@ if (connection === 'close') {
 }
     	if (update.receivedPendingNotifications) {
 			const deviceName = os.hostname();
-			const message = `Airi Is Now Running! ☕`
+			const message = `DS-MD Is Now Running! ☕`
 await conn.sendMessage('6287735348548@s.whatsapp.net', {
 text: message })
 		}
