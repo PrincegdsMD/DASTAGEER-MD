@@ -16,12 +16,12 @@ const port = 3000; //custom ports here, sample: (8080,3000,5000) and others
 const express = require("express");
 const Cfonts = require("cfonts");
 const app = express();
-Cfonts.say("AIRII - EYAY", { font: "tiny" });
+Cfonts.say("DASTAGEER- EYAY", { font: "tiny" });
 app.get("/", (req, res) => {
   res.setHeader("Content-Type", "application/json");
   const data = {
     status: "true",
-    message: "Airii sedang berjalan...",
+    message: "DS-MD is on the run...",
     author: "UmanZX",
   };
 
@@ -62,13 +62,13 @@ function start(file) {
 
   p.on("exit", (code) => {
     isRunning = false;
-    console.error(`Bot mokad dengan kode: ${code}`);
+    console.error(`Mokad bot with code: ${code}`);
 
     if (code === 0) return;
 
     fs.watchFile(args[0], () => {
       fs.unwatchFile(args[0]);
-      start("AiriChan.js");
+      start("main.js");
     });
   });
 
@@ -76,7 +76,7 @@ function start(file) {
     console.error("\x1b[31m%s\x1b[0m", `Error: ${err}`);
     p.kill();
     isRunning = false;
-    start("AiriChan.js");
+    start("main.js");
   });
   const pluginsFolder = path.join(__dirname, "features");
 
@@ -87,7 +87,7 @@ function start(file) {
     }
 
     const chalk = require("chalk");
-    let table = `${chalk.blue.bold("The Simple WhatsApp Bot Airii")}
+    let table = `${chalk.blue.bold("The Simple WhatsApp Bot DS-MD")}
 ${chalk.yellow.bold("-------------------------------------------------------------")}`;
     console.log(table);
   });
@@ -95,14 +95,14 @@ ${chalk.yellow.bold("-----------------------------------------------------------
   setInterval(() => {}, 1000);
 }
 
-start("AiriChan.js");
+start("main.js");
 
 process.on("unhandledRejection", () => {
   console.error(
     "\x1b[31m%s\x1b[0m",
     "Unhandled promise rejection. Script will restart...",
   );
-  start("AiriChan.js");
+  start("main.js");
 });
 
 process.on("exit", (code) => {
