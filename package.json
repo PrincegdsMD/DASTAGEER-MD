@@ -1,11 +1,11 @@
 {
-  "nama": "Airi",
+  "nama": "DS-MD",
   "description": "Simple WhatsApp Bot With Baileys",
-  "developer": "Shyro",
+  "developer": "Prince",
   "tags": [
     "botwa",
     "whatsappbot",
-    "airi",
+    "ds-md",
     "botjs"
   ],
   "scripts": {
