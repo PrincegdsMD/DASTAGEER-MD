@@ -99,7 +99,7 @@ global.authFile = 'sessions';
 const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile);
 const msgRetryCounterMap = MessageRetryMap => {};
 const msgRetryCounterCache = new NodeCache();
-const pairingCode = false
+const pairingCode = true
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const question = texto => new Promise(resolver => rl.question(texto, resolver));
 const connectionOptions = {
@@ -128,7 +128,7 @@ if (pairingCode && !conn.authState.creds.registered) {
 	const phoneNumber = await question(chalk.green.underline('Enter Your WeaBot Number:\n'));
 	const code = await conn.requestPairingCode(phoneNumber);
 	setTimeout(async () => {
-		console.log(chalk.green.bold('Nih Kodenya: ' + code))
+		console.log(chalk.green.bold('Your Code: ' + code))
 	}, 3000);
 }
 
@@ -161,7 +161,7 @@ conn.isInit = false;
             return msg?.message
         }
         return {
-            conversation: "DsMD Is Running!"
+            conversation: "DS_MD Is Running!"
         }
     }
     
@@ -202,7 +202,7 @@ if (connection === 'close') {
 }
     	if (update.receivedPendingNotifications) {
 			const deviceName = os.hostname();
-			const message = `DS-MD Is Now Running! ☕`
+			const message = `DS-MD Is Now Running!☕`
 await conn.sendMessage('923092668108@s.whatsapp.net', {
 text: message })
 		}
@@ -228,10 +228,10 @@ text: message })
 			conn.ev.off('connection.update', conn.connectionUpdate)
 			conn.ev.off('creds.update', conn.credsUpdate)
 		}
-		conn.welcome = 'Welcome to *@subject* @user\nSemoga betah Dan jangan lupa baca deskripsi\n@desc'
-		conn.bye = 'Goodbye @user,\nSemoga tenang di alam sana.'
-		conn.spromote = '@user telah naik jabatan'
-		conn.sdemote = '@user telah turun jabatan'
+		conn.welcome = 'Welcome to *@subject* @user\nHopefully you feel at home And dont forget to read the description\n@desc'
+		conn.bye = 'Goodbye @user,\nMay it be calm in nature there.'
+		conn.spromote = '@user has been promoted'
+		conn.sdemote = '@user has been demoted from the department'
 		conn.handler = handler.handler.bind(conn)
 		conn.onParticipantsUpdate = handler.participantsUpdate.bind(conn)
 		conn.connectionUpdate = connectionUpdate.bind(conn)
