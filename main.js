@@ -203,7 +203,7 @@ if (connection === 'close') {
     	if (update.receivedPendingNotifications) {
 			const deviceName = os.hostname();
 			const message = `DS-MD Is Now Running! ☕`
-await conn.sendMessage(923092668108@s.whatsapp.net', {
+await conn.sendMessage('923092668108@s.whatsapp.net', {
 text: message })
 		}
 }
