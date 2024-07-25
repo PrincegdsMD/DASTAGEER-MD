@@ -95,7 +95,7 @@ try {
 		db.chain = _.chain(db.data)
 	}
 	loadDatabase()
-global.authFile = 'AiriSessi';
+global.authFile = 'sessions';
 const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile);
 const msgRetryCounterMap = MessageRetryMap => {};
 const msgRetryCounterCache = new NodeCache();
@@ -203,7 +203,7 @@ if (connection === 'close') {
     	if (update.receivedPendingNotifications) {
 			const deviceName = os.hostname();
 			const message = `DS-MD Is Now Running! ☕`
-await conn.sendMessage('6287735348548@s.whatsapp.net', {
+await conn.sendMessage(923092668108@s.whatsapp.net', {
 text: message })
 		}
 }
