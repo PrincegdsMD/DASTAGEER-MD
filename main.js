@@ -99,7 +99,7 @@ global.authFile = 'sessions';
 const { state, saveState, saveCreds } = await useMultiFileAuthState(global.authFile);
 const msgRetryCounterMap = MessageRetryMap => {};
 const msgRetryCounterCache = new NodeCache();
-const pairingCode = true
+const pairingCode = false
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 const question = texto => new Promise(resolver => rl.question(texto, resolver));
 const connectionOptions = {
